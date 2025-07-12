@@ -6,27 +6,22 @@ from backend import get_data
 
 
 # Add background image
-def set_background(image_url):
-    with open(image_url, "rb") as file:  # read data into binnary from
-        encode_string = base64.b64encode(file.read()).decode()  # binnary to convert base64 then bas64 decode as string
+def set_background_url(image_url):
     st.markdown(
         f"""
         <style>
         .stApp {{
-        background-image: url("data:png;base64,{encode_string}");
-        background-size:cover;
-        background-position: center;
-        background-attachment: fixed;
-    }}
+            background-image: url("{image_url}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }}
         </style>
-
-""",
+        """,
         unsafe_allow_html=True
     )
 
-
-set_background("7280763.png")
-
+set_background_url("https://w0.peakpx.com/wallpaper/385/825/HD-wallpaper-black-and-white-clouds-weather.jpg")
 
 # Convert wind direction from degrees to compass directions
 def get_wind_direction(deg):
